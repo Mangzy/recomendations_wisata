@@ -1,38 +1,12 @@
 from flask import Flask, Response, request
-from flasgger import Swagger 
-from sklearn.metrics.pairwise import linear_kernel
 import joblib
 import bnlearn as bn
 import json
 
 app = Flask(__name__)
-swagger_template = {
-    'info':{
-        'title': 'API Recomendation Wisata Surabaya',
-        'description': 'Test',
-        'versions' : '1.0.0'
-    }
-}
-swagger_config = {
-    'headers': [
-    ],
-    'specs': [
-        {
-            'endpoint': 'apispec_1',
-            'route': '/apispec_1.json',
-            'rule_filter': lambda rule: True,
-            'model_filter': lambda tag: True,
-        }
-    ],
-    'static_url_path': '/flasgger_static',
-    'swagger_ui': True,
-    'specs_route': '/apidocs/'
-}
-
-swagger = Swagger(app, template=swagger_template, config=swagger_config)
 
 @app.route('/')
-def index():
+def home():
     return 'Hello World'
 
 @app.route('/predict', methods=['POST'])
