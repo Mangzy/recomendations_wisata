@@ -1,0 +1,6 @@
+Flask
+scikit-learn
+flasgger
+pandas
+bnlearn
+numpy==1.25.2
